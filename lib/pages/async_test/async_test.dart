@@ -15,6 +15,13 @@ class _AsyncTestState extends State<AsyncTest> {
   final _scoreController = StreamController<int>.broadcast();
 
   @override
+  void dispose() {
+    _inputController.close();
+    _scoreController.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
